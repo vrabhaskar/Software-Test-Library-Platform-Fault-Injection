@@ -1,1 +1,102 @@
+void tsl2591_diagnostics()
+{
+ErrorCount1=0;
+  for(int i=0;i<SAMPLES;i++)
+  {
+      if(isnan(tsl[i])||tsl[0]==0)
+      {
+        ErrorCount1++;
+      }
+      else if(tsl[i]< 0 || tsl[i]> 88000)
+      {
+        ErrorCount1++;
+      }
+  }
+if(ErrorCount1<3)
+{
+Serial.println(“TSL: PASS”);
+}
+else 
+{
+Serial.println(“TSL: FAIL”);
+}
+}
+
+
+
+void mcp9808_diagnostics()
+{
+  ErrorCount2=0;
+  for(int i=0;i<SAMPLES;i++)
+  {
+      if(isnan(mcp[i]))
+      {
+        ErrorCount2++;
+      }
+      else if(mcp[i]< -40.0 || mcp[i]> 125.0)
+      {
+       ErrorCount2++;
+      }
+  }
+if(ErrorCount3<3)
+{
+Serial.println(“MCP: PASS”);
+}
+else 
+{
+Serial.println(“MCP: FAIL”);
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+void tcs34725_diagnostics()
+{
+ErrorCount3=0;
+  for(int i=0;i<SAMPLES;i++)
+  {
+    if(tcs[i] != expectedColorID[i]) {
+        ErrorCount3++;
+      }
+  }
+if(ErrorCount3<3)
+{
+Serial.println(“TCS: PASS”);
+}
+else 
+{
+Serial.println(“TCS: FAIL”);
+}
+}
+
+
+
+void rotaryecnoder_diagnostics()
+{
+ErrorCount4=0;
+  for(int i=0;i<SAMPLES;i++)
+  {
+    if (encoder[i]<-100 ||encoder[i]>100 ) {
+       ErrorCount4++;
+      }
+  }
+if(ErrorCount4<3)
+{
+Serial.println(“ENCODER: PASS”);
+}
+else 
+{
+Serial.println(“ENCODER: FAIL”);
+}
+}
+
 
