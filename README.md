@@ -4,8 +4,8 @@
 This project implements a Software Test Library (STL) framework for ESP32 fault injection testing.
 
 ## Folder Structure
-- Diagnostic_in_Initiator/ → ESP32 Initiator & Target code
-- Diagnostic_in_Target/ → ESP32 Initiator & Target code
+- Diagnostic_in_Initiator/ → ESP32 Initiator & Target code,web Initiator code
+- Diagnostic_in_Target/ → ESP32 Initiator & Target code,web Initiator code
 - docs/ → User Guide and APL_BITS_Platfrom_FI_demo
 
 ## Hardware
