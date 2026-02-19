@@ -21,7 +21,7 @@ This project implements a Software Test Library (STL) framework for ESP32 fault 
 - 28BYJ-48 Stepper Motor DC
 
 ## Version
-v1.0.0
+V 1.0
 
 ## Documentation
 See:
