@@ -69,16 +69,14 @@ void Monitoring() {
   for (int i=0;i<SAMPLES;) {
     stepper.step(85); // ~250 ms @ 10 RPM
     int32_t newPos = encoder.getEncoderPosition();
-    if((newPos>=100000)||(newPos<=-100000))
+    if((newPos>=100000)||(newPos<=-100000)||(newPos==0))
     {
       arr[i++] = newPos;
-      Serial.println(newPos);
     }
     else if(newPos!=lastPos)
     {
-      Serial.println(newPos);
        arr[i++] = newPos;
-    lastPos=newPos;
+      lastPos=newPos;
     }
   }
 }
@@ -107,7 +105,6 @@ void setup() {
 void loop() {
   if (startRequested) {
     startRequested = false;
-    Serial.println("TARGET 4  is start collecting");
     status = ST_IDLE;
     reqIndex = 0;
 
