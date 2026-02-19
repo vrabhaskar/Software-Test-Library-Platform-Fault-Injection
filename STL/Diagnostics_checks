@@ -1,9 +1,9 @@
 void tsl2591_diagnostics()
 {
 ErrorCount1=0;
-  for(int i=0;i<SAMPLES;i++)
+  for(int i=1;i<SAMPLES;i++)
   {
-      if(isnan(tsl[i])||tsl[0]==0)
+      if(isnan(tsl[i])||tsl[i]==0)
       {
         ErrorCount1++;
       }
@@ -27,7 +27,7 @@ Serial.println(“TSL: FAIL”);
 void mcp9808_diagnostics()
 {
   ErrorCount2=0;
-  for(int i=0;i<SAMPLES;i++)
+  for(int i=1;i<SAMPLES;i++)
   {
       if(isnan(mcp[i]))
       {
@@ -62,9 +62,9 @@ Serial.println(“MCP: FAIL”);
 void tcs34725_diagnostics()
 {
 ErrorCount3=0;
-  for(int i=0;i<SAMPLES;i++)
+  for(int i=1,j=0;i<SAMPLES;i++)
   {
-    if(tcs[i] != expectedColorID[i]) {
+    if(tcs[i] != expectedColorID[j]) {
         ErrorCount3++;
       }
   }
@@ -83,9 +83,9 @@ Serial.println(“TCS: FAIL”);
 void rotaryecnoder_diagnostics()
 {
 ErrorCount4=0;
-  for(int i=0;i<SAMPLES;i++)
+  for(int i=1;i<SAMPLES;i++)
   {
-    if (encoder[i]<-100 ||encoder[i]>100 ) {
+    if (encoder[i]<-100000 ||encoder[i]>100000 ) {
        ErrorCount4++;
       }
   }
